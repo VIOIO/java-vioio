@@ -12,8 +12,6 @@ public class Main {
         Web3.getInstance().ethGetBalance();
         Web3.getInstance().shutdown();
 
-//      Web3.getInstance().ethGetBalance();
-//      System.out.println(Web3.getInstance().loadCredentials().getAddress());
      /* Sample_sol_Sample.deploy(Web3.getInstance().web3j(),Web3.getInstance().loadCredentials(),
               DefaultGasProvider.GAS_PRICE,DefaultGasProvider.GAS_LIMIT).
               observable().subscribe(new Subscriber<Sample_sol_Sample>() {
@@ -33,4 +31,6 @@ public class Main {
           }
       });*/
     }
+
+
 }
