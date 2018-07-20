@@ -1,25 +1,47 @@
+import org.web3j.crypto.CipherException;
+import org.web3j.crypto.Credentials;
+import org.web3j.crypto.WalletUtils;
 import org.web3j.protocol.Web3j;
-import org.web3j.protocol.core.methods.response.EthBlockNumber;
-import org.web3j.protocol.core.methods.response.EthGetWork;
-import org.web3j.protocol.core.methods.response.Web3ClientVersion;
+import org.web3j.protocol.core.DefaultBlockParameter;
+import org.web3j.protocol.core.DefaultBlockParameterName;
+import org.web3j.protocol.core.RemoteCall;
+import org.web3j.protocol.core.methods.response.*;
 import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.ipc.UnixIpcService;
+import org.web3j.tx.gas.DefaultGasProvider;
+import org.web3j.utils.Convert;
+import rx.Subscriber;
 
+import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Type;
+import java.math.BigInteger;
+
+import static org.web3j.tx.Transfer.GAS_LIMIT;
+import static org.web3j.tx.gas.DefaultGasProvider.GAS_PRICE;
 
 public class Main {
 
+
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        Web3j web3 = Web3j.build(new HttpService());  // defaults to http://localhost:8545/
-        Web3ClientVersion web3ClientVersion = null;
-        try {
-            web3ClientVersion = web3.web3ClientVersion().send();
-            String clientVersion = web3ClientVersion.getWeb3ClientVersion();
-            System.out.println(clientVersion);
+      Web3.getInstance().getWeb3ClientVersion();
+      Sample_sol_Sample.deploy(Web3.getInstance().web3j(),Web3.getInstance().loadCredentials(),
+              DefaultGasProvider.GAS_PRICE,DefaultGasProvider.GAS_LIMIT).
+              observable().subscribe(new Subscriber<Sample_sol_Sample>() {
+          @Override
+          public void onCompleted() {
+              System.out.println("onCompleted");
+          }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+          @Override
+          public void onError(Throwable throwable) {
+              System.out.println("onError "+throwable.getMessage());
+          }
 
+          @Override
+          public void onNext(Sample_sol_Sample sample_sol_sample) {
+              System.out.println("onNext "+sample_sol_sample.getContractAddress());
+          }
+      });
     }
 }
