@@ -1,3 +1,5 @@
+package com.block;
+
 import org.web3j.crypto.CipherException;
 import org.web3j.crypto.Credentials;
 import org.web3j.crypto.WalletUtils;
@@ -7,6 +9,7 @@ import org.web3j.protocol.core.methods.response.EthGetBalance;
 import org.web3j.protocol.core.methods.response.Web3ClientVersion;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.utils.Convert;
+import com.block.tools.Tool;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,7 +37,7 @@ public class Web3 {
 
     private void init() {
         if (web3j == null) {
-            web3j = Web3j.build(new HttpService(API.TEST_INFURA));
+            web3j = Web3j.build(new HttpService(Apis.TEST_INFURA));
         }
     }
 
@@ -59,7 +62,8 @@ public class Web3 {
 
     public Credentials loadCredentials() {
         try {
-            return WalletUtils.loadCredentials(API.KEY, API.KEYSTORE + API.KEYSTORE_NAME);
+            System.out.println(Tool.getKeystore());
+            return WalletUtils.loadCredentials(Apis.KEY, Tool.getKeystore());
         } catch (IOException e) {
             e.printStackTrace();
         } catch (CipherException e) {
@@ -85,8 +89,8 @@ public class Web3 {
         nullPointerException(web3j);
         String fileName = null;
         try {
-            fileName = WalletUtils.generateNewWalletFile(API.KEY, new File(API.KEYSTORE), false);
-            Credentials credentials = WalletUtils.loadCredentials(API.KEY, API.KEYSTORE + "/" + fileName);
+            fileName = WalletUtils.generateNewWalletFile(Apis.KEY, new File(Tool.getKeystore()), false);
+            Credentials credentials = WalletUtils.loadCredentials(Apis.KEY, Apis.KEYSTORE + "/" + fileName);
             System.out.println(TAG + " generateNewWalletFile : " + credentials.getAddress());
             System.out.println(TAG + " generateNewWalletFile : " + fileName);
         } catch (CipherException e) {
