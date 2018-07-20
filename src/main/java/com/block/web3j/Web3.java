@@ -1,6 +1,9 @@
 package com.block.web3j;
 
+
+
 import com.block.net.Apis;
+import com.block.tools.Tool;
 import org.web3j.crypto.CipherException;
 import org.web3j.crypto.Credentials;
 import org.web3j.crypto.WalletUtils;
@@ -10,7 +13,6 @@ import org.web3j.protocol.core.methods.response.EthGetBalance;
 import org.web3j.protocol.core.methods.response.Web3ClientVersion;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.utils.Convert;
-import com.block.tools.Tool;
 
 import java.io.File;
 import java.io.IOException;
@@ -89,7 +91,7 @@ public class Web3 {
     public void generateNewWalletFile() {
         nullPointerException(web3j);
         String fileName = null;
-        try {
+            try {
             fileName = WalletUtils.generateNewWalletFile(Apis.KEY, new File(Tool.getKeystore()), false);
             Credentials credentials = WalletUtils.loadCredentials(Apis.KEY, Apis.KEYSTORE + "/" + fileName);
             System.out.println(TAG + " generateNewWalletFile : " + credentials.getAddress());
