@@ -12,14 +12,5 @@
     <groupId>com.deploy</groupId>
     <artifactId>deploy</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.web3j</groupId>
-            <artifactId>core</artifactId>
-            <version>3.4.0</version>
-        </dependency>
 
-
-
-    </dependencies>
         </project>

@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: org.web3j:core:3.4.0" level="project" />
     <orderEntry type="library" name="Maven: org.web3j:crypto:3.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.web3j:abi:3.4.0" level="project" />
   </component>
 </module>
