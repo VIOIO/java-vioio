@@ -6,10 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="contract" />
+        <module name="java-vioio" />
         <module name="untitled2" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="contract" target="1.5" />
+      <module name="java-vioio" target="8" />
       <module name="untitled2" target="8" />
     </bytecodeTargetLevel>
   </component>
