@@ -1,4 +1,4 @@
-package com.block;
+package com.block.net;
 
 public class Apis {
     public static final String MAIN_INFURA = "https://mainnet.infura.io/v3/758f005fa2bb4d2fad026814f175de80";

@@ -1,4 +1,4 @@
-package com.block;
+package com.block.deploy;
 
 import java.math.BigInteger;
 import java.util.Arrays;
