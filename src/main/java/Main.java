@@ -25,7 +25,9 @@ public class Main {
 
     public static void main(String[] args) {
       Web3.getInstance().getWeb3ClientVersion();
-      Sample_sol_Sample.deploy(Web3.getInstance().web3j(),Web3.getInstance().loadCredentials(),
+      Web3.getInstance().ethGetBalance();
+      System.out.println(Web3.getInstance().loadCredentials().getAddress());
+     /* Sample_sol_Sample.deploy(Web3.getInstance().web3j(),Web3.getInstance().loadCredentials(),
               DefaultGasProvider.GAS_PRICE,DefaultGasProvider.GAS_LIMIT).
               observable().subscribe(new Subscriber<Sample_sol_Sample>() {
           @Override
@@ -42,6 +44,6 @@ public class Main {
           public void onNext(Sample_sol_Sample sample_sol_sample) {
               System.out.println("onNext "+sample_sol_sample.getContractAddress());
           }
-      });
+      });*/
     }
 }

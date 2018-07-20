@@ -21,7 +21,7 @@ public class Web3 {
     private Web3j web3j;
 
     private Web3() {
-
+//0x42a9f7a4df9ef052f8199125a9f30fc396ffa286
     }
 
     public static Web3 getInstance() {
