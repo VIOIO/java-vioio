@@ -9,8 +9,8 @@ public class Main {
     public static void main(String[] args) {
 
         Web3.getInstance().getWeb3ClientVersion();
-//        Web3.getInstance().ethGetBalance();
-//        Web3.getInstance().shutdown();
+        Web3.getInstance().ethGetBalance();
+        Web3.getInstance().shutdown();
 
 //      Web3.getInstance().ethGetBalance();
 //      System.out.println(Web3.getInstance().loadCredentials().getAddress());
